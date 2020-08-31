@@ -7,19 +7,19 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-    <img src="https://wac-cdn.atlassian.com/dam/jcr:01f0ea80-2b31-4009-8eaf-da8ebcabdfe1/Bitbucket-blue.svg?cdnVersion=1209" alt="Logo" height="60">
+  <img src="https://wac-cdn.atlassian.com/dam/jcr:01f0ea80-2b31-4009-8eaf-da8ebcabdfe1/Bitbucket-blue.svg?cdnVersion=1209" alt="Logo" height="60">
 
-    <h3 align="center">atlassian/bitbucket</h3>
+  <h3 align="center">atlassian/bitbucket</h3>
 
-    <p align="center">
-        Docker setup for bitbucket
-        <br />
-        <br />
-        ·
-        <a href="https://github.com/beuluis/atlassian-bitbucket/issues">Report Bug</a>
-        ·
-        <a href="https://github.com/beuluis/atlassian-bitbucket/issues">Request Feature</a>
-    </p>
+  <p align="center">
+    Docker setup for bitbucket
+    <br />
+    <br />
+    ·
+    <a href="https://github.com/beuluis/atlassian-bitbucket/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/beuluis/atlassian-bitbucket/issues">Request Feature</a>
+  </p>
 </p>
 
 <!-- ABOUT THE PROJECT -->
