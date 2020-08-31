@@ -5,7 +5,7 @@ services:
         container_name: atlassianBitbucketProd
 
         environment:
-            VIRTUAL_HOST: bitbucket.luisbeu.de
+        	VIRTUAL_HOST: bitbucket.luisbeu.de
             VIRTUAL_PORT: 7990
             LETSENCRYPT_HOST: bitbucket.luisbeu.de
             ATL_PROXY_NAME: bitbucket.luisbeu.de
