@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+    atlassian-bitbucket:
+        container_name: atlassianBitbucketDev
+
+        environment:
+            FORCE_COLOR: 1
+            JDBC_URL: jdbc:postgresql://postgres:5432/atlassianBitbucketDev
+            JDBC_USER: atlassianBitbucketDev
+            JDBC_PASSWORD: DFLHjKu8C65zHCbj34rLmR
+            JDBC_DRIVER: org.postgresql.Driver
+
+        ports:
+            - 8097:7990
+
+    postgres:
+        ports:
+            - 5432
+
+        container_name: atlassianBitbucketPostgresqlDev
+
+        environment:
+            FORCE_COLOR: 1
+            POSTGRES_USER: atlassianBitbucketDev
+            POSTGRES_PASSWORD: DFLHjKu8C65zHCbj34rLmR
+            POSTGRES_DB: atlassianBitbucketDev

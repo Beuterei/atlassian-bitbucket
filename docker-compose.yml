@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+    atlassian-bitbucket:
+        image: atlassian/bitbucket-server:7.5.1
+
+        deploy:
+            resources:
+              limits:
+                memory: 4G
+
+        networks:
+            - default
+
+        depends_on:
+            - postgres
+
+        restart: always
+
+        volumes:
+            - atlassianBitbucketData:/var/atlassian/application-data/bitbucket
+
+        environment:
+            JVM_MINIMUM_MEMORY: 512m
+            JVM_MAXIMUM_MEMORY: 1024m
+
+    postgres:
+        image: postgres:12.4-alpine
+
+        networks:
+            - default
+
+        restart: always
+
+        volumes:
+            - ./databaseEntrypoint:/docker-entrypoint-initdb.d
+            - atlassianBitbucketPostgresqlData:/var/lib/postgresql/data
+
+volumes:
+    atlassianBitbucketData: {}
+    atlassianBitbucketPostgresqlData: {}

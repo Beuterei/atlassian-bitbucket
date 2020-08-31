@@ -1,0 +1,40 @@
+# To be tested
+version: "3.7"
+services:
+    atlassian-bitbucket:
+        container_name: atlassianBitbucketProd
+
+        environment:
+            VIRTUAL_HOST: bitbucket.luisbeu.de
+            VIRTUAL_PORT: 7990
+            LETSENCRYPT_HOST: bitbucket.luisbeu.de
+            ATL_PROXY_NAME: bitbucket.luisbeu.de
+            ATL_PROXY_PORT: 443
+            ATL_TOMCAT_SECURE: 1
+
+            networks:
+                - default
+                - nginxproxynet
+
+        ports:
+            - 7990
+
+    postgres:
+        ports:
+            - 5432
+
+        container_name: atlassianBitbucketPostgresqlProd
+
+        environment:
+            FORCE_COLOR: 1
+            POSTGRES_USER: atlassianBitbucketProd
+            POSTGRES_PASSWORD_FILE: /run/secrets/postgresPassword
+            POSTGRES_DB: atlassianBitbucketProd
+
+secrets:
+    postgresPassword:
+        external: true
+
+networks:
+    nginxproxynet:
+        external: true
