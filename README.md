@@ -51,8 +51,11 @@ docker-compose up --build
 Local db login information:
 
 DB: `atlassianBitbucketDev`
+
 User: `atlassianBitbucketDev`
+
 Password: `DFLHjKu8C65zHCbj34rLmR`
+
 
 ### Production
 
