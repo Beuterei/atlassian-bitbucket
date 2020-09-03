@@ -5,13 +5,13 @@ services:
 
         environment:
             FORCE_COLOR: 1
-            JDBC_URL: jdbc:postgresql://postgres:5432/atlassianBitbucketDev
-            JDBC_USER: atlassianBitbucketDev
-            JDBC_PASSWORD: DFLHjKu8C65zHCbj34rLmR
+            JDBC_URL: jdbc:postgresql://postgres:5432/${PG_DB-atlassianBitbucketDev}
+            JDBC_USER: ${PG_USER-atlassianBitbucketDev}
+            JDBC_PASSWORD: ${PG_PASSWORD-DFLHjKu8C65zHCbj34rLmR}
             JDBC_DRIVER: org.postgresql.Driver
 
         ports:
-            - 8097:7990
+            - ${PORT-8097}:7990
 
     postgres:
         ports:
@@ -21,6 +21,6 @@ services:
 
         environment:
             FORCE_COLOR: 1
-            POSTGRES_USER: atlassianBitbucketDev
-            POSTGRES_PASSWORD: DFLHjKu8C65zHCbj34rLmR
-            POSTGRES_DB: atlassianBitbucketDev
+            POSTGRES_USER: ${PG_USER-atlassianBitbucketDev}
+            POSTGRES_PASSWORD: ${PG_PASSWORD-DFLHjKu8C65zHCbj34rLmR}
+            POSTGRES_DB: ${PG_DB-atlassianBitbucketDev}

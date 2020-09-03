@@ -5,12 +5,16 @@ services:
         container_name: atlassianBitbucketProd
 
         environment:
-        	VIRTUAL_HOST: bitbucket.luisbeu.de
+        	VIRTUAL_HOST: ${HOST:?Missing environment variable see readme}
             VIRTUAL_PORT: 7990
-            LETSENCRYPT_HOST: bitbucket.luisbeu.de
-            ATL_PROXY_NAME: bitbucket.luisbeu.de
+            LETSENCRYPT_HOST: ${HOST:?Missing environment variable see readme}
+            ATL_PROXY_NAME: ${HOST:?Missing environment variable see readme}
             ATL_PROXY_PORT: 443
             ATL_TOMCAT_SECURE: 1
+            JDBC_URL: jdbc:postgresql://postgres:5432/${PG_DB-atlassianBitbucketProd}
+            JDBC_USER: ${PG_USER-atlassianBitbucketProd}
+            JDBC_PASSWORD: ${PG_PASSWORD:?Missing environment variable see readme}
+            JDBC_DRIVER: org.postgresql.Driver
 
             networks:
                 - default
@@ -26,14 +30,9 @@ services:
         container_name: atlassianBitbucketPostgresqlProd
 
         environment:
-            FORCE_COLOR: 1
-            POSTGRES_USER: atlassianBitbucketProd
-            POSTGRES_PASSWORD_FILE: /run/secrets/postgresPassword
-            POSTGRES_DB: atlassianBitbucketProd
-
-secrets:
-    postgresPassword:
-        external: true
+            POSTGRES_USER: ${PG_USER-atlassianBitbucketProd}
+            POSTGRES_PASSWORD: ${PG_PASSWORD:?Missing environment variable see readme}
+            POSTGRES_DB: ${PG_DB-atlassianBitbucketProd}
 
 networks:
     nginxproxynet:
