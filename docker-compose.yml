@@ -36,5 +36,7 @@ services:
             - atlassianBitbucketPostgresqlData:/var/lib/postgresql/data
 
 volumes:
-    atlassianBitbucketData: {}
-    atlassianBitbucketPostgresqlData: {}
+    atlassianBitbucketData:
+        driver: local
+    atlassianBitbucketPostgresqlData:
+        driver: local
